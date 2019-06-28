@@ -1,0 +1,20 @@
+<div class="container-fluid">
+  <div class="row">   
+    <app-sidebar (toggleSidebar)="toggleSidebar()" [isOpen]="isOpen">      
+    </app-sidebar>
+    <main class="main-content col-lg-10 col-md-9 col-sm-12 
+                 p-0 offset-lg-2 offset-md-3">    
+      <app-navbar (toggleSidebar)="toggleSidebar()"></app-navbar>        
+      <div class="main-content-container container-fluid px-4">
+          <ng-container *ngIf="offline"> 
+              <ngb-alert class="mt-4 mt-sm-4" 
+                         [type]="warning" 
+                         [dismissible]="false">   
+                    {{msgOffline}}              
+              </ngb-alert>  
+           </ng-container> 
+          <router-outlet></router-outlet>        
+      </div>       
+    </main>
+  </div>
+</div>

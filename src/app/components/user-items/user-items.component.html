@@ -1,0 +1,23 @@
+<div class="card" style="height: 100%">
+  <div class="card-header border-bottom">
+    <h6 class="m-0">{{title}}</h6>
+  </div>
+  <div class="card-body p-0">
+    <ul class="list-group list-group-small list-group-flush">
+      <li class="list-group-item d-flex px-3" *ngFor="let userItem of userItemsPartial">       
+        <img *ngIf="!offline" class="user-avatar rounded-circle mr-2 img-size" [src]="userItem.avatar_url" alt="User Avatar">      
+        <img [hidden]="!offline" class="user-avatar rounded-circle mr-2 img-size" src="../../../assets/images/user_avatar.jpg" alt="User avatar"/>        
+        <span class="text-semibold text-fiord-blue content-span">
+          {{userItem.login}}
+        </span>
+      </li>
+    </ul>
+  </div>
+  <div class="card-footer border-top">
+    <div class="row">
+      <div class="col-md-12">
+        <ngb-pagination [pageSize]="pageSize" [collectionSize]="userItems.length" (pageChange)="paginate($event)"></ngb-pagination>
+      </div>
+    </div>
+  </div>
+</div>

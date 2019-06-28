@@ -1,0 +1,25 @@
+<div class="card" style="height: 100%">
+    <div class="card-header border-bottom">
+      <h6 class="m-0">{{title}}</h6>
+    </div>
+    <div class="card-body p-0">
+      <ul class="list-group list-group-small list-group-flush">
+        <li class="list-group-item content-group-item"
+            *ngFor="let activityItem of activityItemsPartial">         
+          <strong>
+              {{activityItem.type}}
+          </strong>                  
+          <div class="text-semibold text-fiord-blue">
+              {{activityItem.name}}             
+          </div>          
+        </li>
+      </ul>
+    </div>
+    <div class="card-footer border-top">                    
+      <ngb-pagination       
+        [pageSize]="pageSize"
+        [collectionSize]="activityItems.length"
+        (pageChange)="paginate($event)"></ngb-pagination>      
+    </div>
+</div>
+

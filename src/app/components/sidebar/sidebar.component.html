@@ -1,0 +1,19 @@
+<aside [ngClass]="{'open': isOpen}" class="main-sidebar  col-md-3 col-lg-2 px-0">
+  <div class="main-navbar">
+    <nav class="navbar align-items-stretch navbar-light bg-white flex-md-nowrap border-bottom p-0">
+      <a (click)="callToggleSidebar()" class="toggle-sidebar d-sm-inline d-md-none d-lg-none">
+        <i style="cursor: pointer" class="fa fa-arrow-left"></i>
+      </a>
+    </nav>
+  </div>
+  <div class="nav-wrapper">
+    <ul class="nav flex-column">
+      <li *ngFor="let item of navItems; let i = index" class="nav-item">
+        <a [ngClass]="{'active': isSelected(item.routerLink)}" class="nav-link" [routerLink]="item.routerLink" (click)="callToggleSidebar()">
+          <i style="cursor: pointer" class="fa {{item.icon}}"></i>
+          <span>{{item.text}}</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</aside>
